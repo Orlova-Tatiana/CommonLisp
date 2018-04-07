@@ -1,4 +1,4 @@
-;;; 42. Îïðåäåëèòü ìàêñèìàëüíûé ýëåìåíò â äåðåâå
+;;; 42. ÐžÐ¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÑŒ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð² Ð´ÐµÑ€ÐµÐ²Ðµ
 
 (defun left (tree)
 	(car tree)
@@ -27,7 +27,7 @@
 )
 
 (defun print-pretty (tree)
-	(format t "Äåðåâî = ~a, ìàêñèìàëüíûé ýëåìåíò => ~a~%" tree (tree-max tree))
+	(format t "Tree = ~a, max element => ~a~%" tree (tree-max tree))
 )
 
 (setq *tree1* 
@@ -66,6 +66,6 @@
 (print-pretty *tree2*)
 
 #|
-Äåðåâî = ((NIL 5 (NIL 7 NIL)) 2 ((NIL 3 NIL) 6 (NIL 1 NIL))), ìàêñèìàëüíûé ýëåìåíò => 7
-Äåðåâî = (((NIL 4 NIL) 5 (NIL 3 NIL)) 6 ((NIL 3 NIL) 9 (NIL 1 NIL))), ìàêñèìàëüíûé ýëåìåíò => 9
+Ð”ÐµÑ€ÐµÐ²Ð¾ = ((NIL 5 (NIL 7 NIL)) 2 ((NIL 3 NIL) 6 (NIL 1 NIL))), Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ => 7
+Ð”ÐµÑ€ÐµÐ²Ð¾ = (((NIL 4 NIL) 5 (NIL 3 NIL)) 6 ((NIL 3 NIL) 9 (NIL 1 NIL))), Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ => 9
 |#

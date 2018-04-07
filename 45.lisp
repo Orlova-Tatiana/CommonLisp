@@ -1,4 +1,4 @@
-;;; 45. Определить расстояние между городами по координатам x и y
+;;; 45. РћРїСЂРµРґРµР»РёС‚СЊ СЂР°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ РіРѕСЂРѕРґР°РјРё РїРѕ РєРѕРѕСЂРґРёРЅР°С‚Р°Рј x Рё y
 
 (defun dist (city1 city2)
 	(let
@@ -14,7 +14,7 @@
 		
 
 (defun print-pretty (city1 city2)
-	(format t "Город1 = ~a, Город2 = ~a, расстояние => ~a~%" city1 city2 (dist city1 city2))
+	(format t "City1 = ~a, City2 = ~a, distance => ~a~%" city1 city2 (dist city1 city2))
 )
 
 (setf (get 'Simfer 'x) 1)
@@ -26,6 +26,6 @@
 (print-pretty 'Simfer 'Simfer) ; 0
 
 #|
-Город1 = SIMFER, Город2 = PITER, расстояние => 5
-Город1 = SIMFER, Город2 = SIMFER, расстояние => 0
+Р“РѕСЂРѕРґ1 = SIMFER, Р“РѕСЂРѕРґ2 = PITER, СЂР°СЃСЃС‚РѕСЏРЅРёРµ => 5
+Р“РѕСЂРѕРґ1 = SIMFER, Р“РѕСЂРѕРґ2 = SIMFER, СЂР°СЃСЃС‚РѕСЏРЅРёРµ => 0
 |#

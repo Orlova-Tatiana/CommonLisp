@@ -1,4 +1,4 @@
-;;; 47. Удалить все свойства символа
+;;; 47. РЈРґР°Р»РёС‚СЊ РІСЃРµ СЃРІРѕР№СЃС‚РІР° СЃРёРјРІРѕР»Р°
 
 (defun remove-svoystva (object)
 	(let
@@ -14,9 +14,9 @@
 )
 
 (defun print-pretty (city)
-	(format t "Город = ~a, свойства => ~a~%" city (symbol-plist city))
+	(format t "City = ~a, property => ~a~%" city (symbol-plist city))
 	(remove-svoystva city)
-	(format t "Свойства после удаления => ~a~%" (symbol-plist city))
+	(format t "Properties after removal => ~a~%" (symbol-plist city))
 	(terpri)
 )
 
@@ -31,9 +31,9 @@
 (print-pretty 'Piter)
 
 #|
-Город = SIMFER, свойства => (REGION Crimea Y 2 X 1)
-Свойства после удаления => NIL
+Р“РѕСЂРѕРґ = SIMFER, СЃРІРѕР№СЃС‚РІР° => (REGION Crimea Y 2 X 1)
+РЎРІРѕР№СЃС‚РІР° РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ => NIL
 
-Город = PITER, свойства => (COUNTRY Russia Y -2 X 4)
-Свойства после удаления => NIL
+Р“РѕСЂРѕРґ = PITER, СЃРІРѕР№СЃС‚РІР° => (COUNTRY Russia Y -2 X 4)
+РЎРІРѕР№СЃС‚РІР° РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ => NIL
 |#
