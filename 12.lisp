@@ -1,29 +1,20 @@
-;;; 12. Удалить 2 подр¤д идущих одинаковых элемента
-
-(defun head (arr)
-	(car arr)
-)
-
-(defun tail (arr)
-	(cdr arr)
-)
-
-(defun head-2 (arr)
-	(cadr arr)
-)
+;;; 12. Заменить 2 подряд идущих одинаковых элемента на один
 
 (defun remove-2 (arr)
-	(defun iterate (arr can-place)
+	(defun iterate (arr can-add)
 		(if (null arr)
 			Nil
-			(if (null (tail arr))
-				(if can-place arr Nil)
-				(if (not can-place)
-					(iterate (tail arr) T)
-					(if (= (head arr) (head-2 arr))
-						(cons (head arr) (iterate (tail arr) Nil))
-						(cons (head arr) (iterate (tail arr) T)) 
-					)
+			(let
+				(
+					(head (car arr))
+					(tail (cdr arr))
+					(head-2 (cadr arr))
+				)
+				(cond
+					((null tail) (if can-add arr Nil))
+					((not can-add) (iterate tail T))
+					((= head head-2) (cons head (iterate tail Nil)))
+					(T (cons head (iterate tail T)))
 				)
 			)
 		)
@@ -33,7 +24,7 @@
 )
 
 (defun print-pretty (arr)
-	(format t "List = ~a, remove 2 adjacent elements => ~a~%" arr (remove-2 arr))
+	(format t "List = ~a, replace 2 adjacent elements with one => ~a~%" arr (remove-2 arr))
 )
 
 (print-pretty '(1 1 2 3 3 3 4 4))
@@ -42,10 +33,10 @@
 (print-pretty '(1))
 
 #|
-Список = (1 1 2 3 3 3 4 4), удалить 2 подряд идущих одинаковых => (1 2 3 3 4)
-Список = (6 6 6 6), удалить 2 подряд идущих одинаковых => (6 6)
-Список = (1 2 3), удалить 2 подряд идущих одинаковых => (1 2 3)
-Список = (1), удалить 2 подряд идущих одинаковых => (1)
+Список = (1 1 2 3 3 3 4 4), заменить 2 подряд идущих одинаковых элемента на один => (1 2 3 3 4)
+Список = (6 6 6 6), заменить 2 подряд идущих одинаковых элемента на один => (6 6)
+Список = (1 2 3), заменить 2 подряд идущих одинаковых элемента на один => (1 2 3)
+Список = (1), заменить 2 подряд идущих одинаковых элемента на один => (1)
 |#
 
 

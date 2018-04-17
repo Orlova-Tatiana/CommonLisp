@@ -10,24 +10,30 @@
 	)
 )
 
-(defun ne-vhodyat (arr1 arr2)
-	(defun obhod (arr1 arr2)
+(defun not-in (arr1 arr2)
+	(defun iterate (arr1 arr2)
 		(if (null arr1) 
 			Nil
-			(if (contains arr2 (car arr1))
-				(obhod (cdr arr1) arr2)
-				(cons (car arr1) (obhod (cdr arr1) arr2))
+			(let
+				(
+					(head (car arr1))
+					(tail (cdr arr1))
+				)
+				(if (contains arr2 head)
+					(iterate tail arr2)
+					(cons head (iterate tail arr2))
+				)
 			)
 		)
 	)
 	(append
-		(obhod arr1 arr2)
-		(obhod arr2 arr1)
+		(iterate arr1 arr2)
+		(iterate arr2 arr1)
 	)
 )
 
 (defun print-pretty (arr1 arr2)
-	(format t "List1 = ~a, List2 = ~a, symmetric difference => ~a~%" arr1 arr2 (ne-vhodyat arr1 arr2))
+	(format t "List1 = ~a, List2 = ~a, symmetric difference => ~a~%" arr1 arr2 (not-in arr1 arr2))
 )
 
 (print-pretty '(1 2 3 4) '(5 2 3 8)) ; (1 4 5 8)

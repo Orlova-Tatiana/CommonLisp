@@ -1,14 +1,11 @@
 ;;; 4. Определить функциональный предикат (every предикат список), который верен, если все верны
 
-(defun all-true (arr)
-	(if (null arr)
-		T
-		(and (car arr) (all-true (cdr arr)))
-	)
-)
-
 (defun my-every (predicate arr)
-	(all-true (mapcar predicate arr))
+	(null
+		(mapcan (lambda (x) (if (null x) (list T) Nil))
+			(mapcar predicate arr)
+		)
+	)
 )
 
 (defun print-pretty (arr)
