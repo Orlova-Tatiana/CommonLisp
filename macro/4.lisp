@@ -10,11 +10,19 @@
 	)
 )
 
+(print (macroexpand '(fif -5 'minus 'zero 'plus)))
 (print (fif -5 'minus 'zero 'plus))
 (print (fif 0 'minus 'zero 'plus))
 (print (fif 5 'minus 'zero 'plus))
 
 #|
+(if (> -5 0)
+	'PLUS
+	(if (< -5 0)
+		'MINUS
+		'ZERO
+	)
+)
 MINUS
 ZERO
 PLUS
