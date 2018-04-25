@@ -1,30 +1,20 @@
 ;;; 12. Заменить 2 подряд идущих одинаковых элемента на один
 
-(defun remove-2 (arr)
-	(defun iterate (arr can-add)
-		(if (null arr)
-			Nil
-			(let
-				(
-					(head (car arr))
-					(tail (cdr arr))
-					(head-2 (cadr arr))
-				)
-				(cond
-					((null tail) (if can-add arr Nil))
-					((not can-add) (iterate tail T))
-					((= head head-2) (cons head (iterate tail Nil)))
-					(T (cons head (iterate tail T)))
-				)
+(defun replace-2 (arr)
+	(
+		(lambda (head second arr)
+			(cond
+				((null arr) Nil)
+				((null (cdr arr)) (list head))
+				((eq head second) (cons head (replace-2 (cddr arr))))
+				(T (cons head (replace-2 (cdr arr))))
 			)
-		)
-	)
-	
-	(iterate arr T)
+		) (car arr) (cadr arr) arr
+	)			
 )
 
 (defun print-pretty (arr)
-	(format t "List = ~a, replace 2 adjacent elements with one => ~a~%" arr (remove-2 arr))
+	(format t "List = ~a, replace 2 adjacent elements with one => ~a~%" arr (replace-2 arr))
 )
 
 (print-pretty '(1 1 2 3 3 3 4 4))
