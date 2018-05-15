@@ -35,6 +35,7 @@
 		
 		(cond
 			((eq operation '->) (setq val (reduce-operation token-1 token-2)))
+			((eq operation '=>) (setq val (funcall token-2 token-1)))
 			(T
 				(if (and (not (listp token-2)) (listp token-1))
 					(setq token-2 (repeat token-2 (length token-1))))
@@ -47,28 +48,4 @@
 			(eval `(=> ,val ,@rest-tokens))
 		)
 	)
-)
-
-;;; Примеры
-(print
-	(=> (1 2 3) + (3 4 5) * (1 2 3) / (4 4 4)) ; (1 3 6)
-)
-(print
-	(=> (1 2 3) + 5) ; (6 7 8)
-)
-(print
-	(=> 3 + 4 * self) ; 49
-)
-
-;;; Скалярное произведение
-(print
-	(=> (1 2 3) * (3 4 5) -> +) ; 26
-)
-
-;;; Модуль вектора
-(print
-	(=> (2 4 4) * self -> + -> sqrt) ; 6
-)
-(print
-	(=> (2 4 4) expt 2 -> + -> sqrt) ; 6
 )
